@@ -13,6 +13,11 @@
   box-sizing: border-box;
 }
 
+img,
+svg {
+  max-width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -87,7 +92,8 @@ html.is-loaded .loading-screen {
 body {
   width: 100%;
   margin: 0;
-  padding-inline: clamp(16px, 5vw, 80px);
+  padding-inline: clamp(12px, 5vw, 80px);
+  overflow-wrap: anywhere;
   background:
     radial-gradient(ellipse at 85% 4%, rgb(183 243 107 / 7%), transparent 32rem),
     var(--background);
@@ -143,16 +149,12 @@ header {
 header h1 {
   max-width: 100%;
   margin: 0;
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(2.5rem, 6.5vw, 5.5rem);
   font-weight: 750;
   line-height: 0.98;
   text-wrap: balance;
   overflow-wrap: anywhere;
   letter-spacing: -0.055em;
-   font-size: 80px;
-    font-weight: bold;
-    white-space: nowrap;
-    line-height: 1;
 }
 
 .hero-intro > p:last-child {
@@ -837,7 +839,7 @@ footer {
   }
 
   header h1 {
-    font-size: clamp(2.25rem, 11vw, 3.8rem);
+    font-size: clamp(2rem, 10vw, 3.5rem);
   }
 
   .hero-photo-window {
@@ -900,6 +902,53 @@ footer {
     grid-template-columns: minmax(0, 1fr);
   }
 
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  body {
+    padding-inline: 24px;
+  }
+
+  header {
+    min-height: 0;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .hero-photo-window {
+    width: min(100%, 300px);
+    align-self: center;
+  }
+
+  nav {
+    max-width: 100%;
+  }
+
+  .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 640px;
+  }
+}
+
+@media (max-width: 380px) {
+  header {
+    padding: 18px;
+  }
+
+  .about-content,
+  .experience-card,
+  .contact-form {
+    padding: 18px;
+  }
+
+  .contact-heading,
+  .stack-heading {
+    gap: 8px;
+  }
 }
 
 @media (min-width: 701px) and (max-width: 900px) {
