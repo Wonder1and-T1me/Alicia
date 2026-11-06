@@ -126,6 +126,7 @@ header {
 }
 
 .hero-intro {
+  flex: 1 1 auto;
   max-width: 700px;
   min-width: 0;
   padding: 12px 0;
@@ -151,7 +152,6 @@ header h1 {
    font-size: 80px;
     font-weight: bold;
     white-space: nowrap;
-    width: max-content;
     line-height: 1;
 }
 
@@ -186,6 +186,10 @@ a {
 }
 
 nav a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
   padding: 7px 13px;
   border: 1px solid transparent;
   border-radius: 999px;
@@ -243,7 +247,7 @@ section h2 {
 
 .about-content {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   gap: clamp(32px, 7vw, 96px);
   padding: clamp(24px, 4vw, 48px);
@@ -756,7 +760,7 @@ a.contact-card:focus-visible {
   background: var(--background);
   color: var(--text);
   font: inherit;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .contact-form input::placeholder,
@@ -813,7 +817,7 @@ footer {
 
 @media (max-width: 700px) {
   body {
-    padding-inline: 16px;
+    padding-inline: 12px;
   }
 
   header {
@@ -833,7 +837,7 @@ footer {
   }
 
   header h1 {
-    font-size: clamp(2.8rem, 12vw, 4rem);
+    font-size: clamp(2.25rem, 11vw, 3.8rem);
   }
 
   .hero-photo-window {
@@ -844,14 +848,22 @@ footer {
   nav {
     align-self: flex-start;
     justify-content: flex-start;
+    width: 100%;
     gap: 2px;
     padding: 6px;
     max-width: 100%;
+    border-radius: 16px;
   }
 
   nav a {
-    padding: 7px 10px;
+    display: inline-flex;
+    min-height: 44px;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 9px;
     font-size: 0.82rem;
+    text-align: center;
   }
 
   section {
@@ -886,6 +898,30 @@ footer {
   .contact-layout,
   .contact-form-row {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  body {
+    padding-inline: 24px;
+  }
+
+  header {
+    min-height: 0;
+  }
+
+  .hero-content {
+    gap: 28px;
+  }
+
+  .hero-photo-window {
+    max-width: min(38vw, 280px);
+  }
+
+  .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 640px;
   }
 }
 
